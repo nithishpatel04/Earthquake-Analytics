@@ -4,9 +4,13 @@ import type { EarthquakeRecord } from "../typescript/earthquake";
 
 const CSV_URL = "/all_month.csv";
 
-function toNumber(value: string): number | null {
-  if (!value || value.trim() === "") return null;
-  const num = Number(value);
+function toNumber(value: unknown): number | null {
+  if (value === null || value === undefined) return null;
+
+  const str = String(value).trim();
+  if (str === "") return null;
+
+  const num = Number(str);
   return isNaN(num) ? null : num;
 }
 

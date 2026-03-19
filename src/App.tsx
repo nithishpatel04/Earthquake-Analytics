@@ -22,7 +22,7 @@ export default function App() {
   return (
     <div className="app-container">
       <div className="header">
-        <h1 className="page-title">EarthquakeInsight</h1>
+        <h1 className="page-title">Earthquake-Insight</h1>
         <p className="page-subtitle">
           Earthquake data visualization and table view
         </p>
