@@ -15,27 +15,69 @@ select {
   font: inherit;
 }
 
+/* ---------- APP LAYOUT ---------- */
+
 .app-container {
   min-height: 100vh;
-  padding: 24px;
+  padding: 28px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 24px;
 }
 
 .page-title {
-  margin: 0 0 8px;
-  font-size: 28px;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  color: #111827;
 }
 
 .page-subtitle {
-  margin: 0 0 20px;
-  color: #4b5563;
+  margin: 8px 0 28px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
 }
+
+/* ---------- GRID LAYOUT ---------- */
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ---------- PANELS ---------- */
 
 .panel {
   background: white;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: #1f2937;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 6px;
+}
+
+/* ---------- STATUS ---------- */
 
 .status-text {
   padding: 16px 0;
@@ -47,11 +89,30 @@ select {
   font-weight: 600;
 }
 
+/* ---------- SUMMARY / INFO CARD ---------- */
+
+.summary-card {
+  margin-bottom: 16px;
+  background: white;
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  color: #374151;
+  font-size: 14px;
+}
+
+.summary-card strong {
+  color: #111827;
+}
+
+/* ---------- TABLE ---------- */
+
 .table-wrapper {
   overflow: auto;
   max-height: 75vh;
   border: 1px solid #d1d5db;
-  border-radius: 8px;
+  border-radius: 10px;
   background: white;
 }
 
@@ -73,11 +134,83 @@ select {
 .data-table th {
   position: sticky;
   top: 0;
-  background: #eef2ff;
+  background: #e0e7ff;
+  color: #1e3a8a;
   z-index: 1;
   font-weight: 700;
 }
 
+.data-table tbody tr {
+  transition: background 0.2s ease;
+}
+
 .data-table tbody tr:hover {
   background: #f9fafb;
+  cursor: pointer;
+}
+
+/* Selected row softer overall */
+.selected-row td {
+  background: #f8fafc;
+}
+
+/* Axis headers and cells */
+.axis-header-cell {
+  background: #1d4ed8 !important;
+  color: white !important;
+  font-weight: 700;
+}
+
+.axis-data-cell {
+  background: #eff6ff;
+  border: 2px solid #93c5fd !important;
+}
+
+/* Strong highlight for selected X/Y cells */
+.selected-axis-cell {
+  background: #facc15 !important;
+  color: #111827 !important;
+  font-weight: 700;
+  border: 3px solid #d97706 !important;
+}
+
+/* ---------- CHART ---------- */
+
+.chart-card {
+  width: 100%;
+}
+
+.chart-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.chart-controls label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.chart-controls select {
+  margin-left: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+}
+
+.chart-area {
+  width: 100%;
+  height: 420px;
+  min-height: 420px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1100px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
 }
